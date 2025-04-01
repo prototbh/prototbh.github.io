@@ -3,228 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bio</title>
+    <title>Elijah's Bio</title>
     <style>
         body {
             margin: 0;
-            font-family: sans-serif;
-            background: linear-gradient(to bottom, #340034, #e0b0ff);
-            color: white;
-            overflow: hidden;
-            transform: scale(0.9);
-            transform-origin: top left;
-            width: 111.11%;
-            height: 111.11%;
-            position: relative;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .stars {
             position: fixed;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             pointer-events: none;
         }
 
         .star {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            opacity: 0;
-            animation: twinkle 3s infinite;
+            background-color: #fff;
             border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
         }
 
         @keyframes twinkle {
-            0% { opacity: 0; }
+            0%, 100% { opacity: 0.3; }
             50% { opacity: 1; }
-            100% { opacity: 0; }
         }
 
         .container {
-            padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            padding: 20px;
             position: relative;
-            z-index: 2;
         }
 
         header {
             text-align: center;
             padding: 50px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
         }
 
         h1 {
             font-size: 3em;
-            margin-bottom: 10px;
+            margin: 0;
+            letter-spacing: 3px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-top: 30px;
         }
 
         section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            text-align: center;
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        footer {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .github-link {
+        .social-links {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        .github-link img {
+        .social-links a, .social-links img {
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img {
             width: 50px;
             height: 50px;
-            transition: transform 0.2s ease-in-out;
-            cursor: pointer;
+            filter: invert(1);
         }
 
-        .github-link img:hover {
+        .social-links a:hover, .social-links img:hover {
             transform: scale(1.1);
         }
 
         .projects-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: pink;
-            color: black;
-            border: none;
-            padding: 10px 15px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .projects-button:hover {
+            background: white;
+            color: black;
         }
 
         .project-boxes {
             display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 5;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 600px;
         }
 
         .project-box {
-            width: 200px;
-            height: 100px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .project-box span {
-            position: absolute;
-            top: 10px;
-            left: 10px;
+            width: 250px;
+            height: 120px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 1.2em;
             font-weight: bold;
+            transition: all 0.3s ease;
         }
 
-        .top-row {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
+        .project-box:hover {
+            border-color: white;
+            transform: translateY(-5px);
+        }
+
+        .close-projects {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .glowing-cross {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 60px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .glowing-cross:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .glowing-cross::before, .glowing-cross::after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            border-radius: 2px;
+            box-shadow: 0 0 10px white, 0 0 20px white;
+        }
+
+        .glowing-cross::before {
+            width: 100%;
+            height: 8px;
+            top: 33%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .glowing-cross::after {
+            width: 8px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .verse-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 80%;
+            width: 500px;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .verse-popup.show {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .verse-text {
+            font-size: 1.2em;
+            line-height: 1.6;
             margin-bottom: 20px;
+            font-style: italic;
         }
 
-        .bottom-row {
-            display: flex;
-            justify-content: center;
+        .verse-reference {
+            font-size: 1em;
+            color: #aaa;
+        }
+
+        .close-verse {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .loading-verse {
+            display: none;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .projects-button, .glowing-cross {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <button class="projects-button" onclick="toggleVisibility()">Projects</button>
+    <button class="projects-button" onclick="toggleProjects()">Projects</button>
     <div class="stars" id="star-container"></div>
-    <div class="container" id="content">
+    <div class="glowing-cross"></div>
+    
+    <div class="container">
         <header>
             <h1>ELIJAH</h1>
-            <p>Welcome to my bio!</p>
+            <p>Software Developer & Creative Mind</p>
         </header>
+        
         <section id="about">
             <h2>About Me</h2>
-            <p>My name is Elijah, or Proto. I'm a 14-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I'm passionate about coding and game development in Godot, and I’m currently learning C++. I have Legg–Calvé–Perthes disease, which has resulted in over 12 surgeries. I also have a thing for goth women and really like thick thighs—holy hell, they are my favorite thing in the world.</p>
+            <p>Hello! I'm Elijah, also known as Proto. I'm a 14-year-old software developer from Pennsylvania with experience in Python, C#, and HTML. I'm passionate about coding and game development, particularly with Godot, and I'm currently expanding my skills by learning C++.</p>
+            <p>Beyond programming, I've faced significant challenges including Legg–Calvé–Perthes disease, which has resulted in over 12 surgeries. These experiences have shaped my resilience and determination.</p>
+            <p>When I'm not coding, you might find me appreciating goth aesthetics or enjoying my favorite things in the world aka thick thighs.<p>
         </section>
+        
+        <section id="skills">
+            <h2>Skills & Interests</h2>
+            <ul>
+                <li>Programming Languages: Python, C#, HTML/CSS, JavaScript (learning C++)</li>
+                <li>Game Development: Godot Engine experience</li>
+                <li>Creative Problem Solving</li>
+                <li>Quick Learner & Adaptable</li>
+            </ul>
+        </section>
+        
         <section id="contact">
-            <div class="github-link">
-                <a href="https://github.com/prototbh" target="_blank">
-                    <img src="https://img.icons8.com/m_sharp/200/FFFFFF/github.png" alt="GitHub Logo">
+            <h2>Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://github.com/prototbh" target="_blank" title="GitHub">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
                 </a>
-                <img src="https://brandlogos.net/wp-content/uploads/2021/11/discord-logo-512x512.png" alt="Discord Logo" onclick="copyDiscord()">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/discord.svg" alt="Discord" onclick="copyDiscord()" title="Click to copy Discord username" style="cursor: pointer;">
             </div>
         </section>
     </div>
-
+    
     <div class="project-boxes" id="project-boxes">
-        <div class="top-row">
-            <div class="project-box">
-                <span>OnlyLeaks</span>
-            </div>
-            <div class="project-box">
-                <span>Axon</span>
-            </div>
+        <button class="close-projects" onclick="toggleProjects()">×</button>
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-box">OnlyLeaks</div>
+            <div class="project-box">Axon</div>
+            <div class="project-box">Chime Logger</div>
+            <div class="project-box">Coming Soon</div>
         </div>
-        <div class="bottom-row">
-            <div class="project-box">
-                <span>Chime Logger</span>
-            </div>
-        </div>
+    </div>
+    
+    <footer>
+        © 2025 Elijah | Made with HTML, CSS & JavaScript
+    </footer>
+
+    <div class="verse-popup" id="versePopup">
+        <button class="close-verse" onclick="closeVerse()">×</button>
+        <div class="loading-verse" id="loadingVerse">Fetching verse...</div>
+        <div class="verse-text" id="verseText"></div>
+        <div class="verse-reference" id="verseReference"></div>
     </div>
 
     <script>
-        function copyDiscord() {
-            navigator.clipboard.writeText("prototbh_").then(() => {
-                alert("Discord username copied to clipboard!");
-            });
-        }
+        const bibleBooks = [
+            {book: "john", chapters: 21},
+            {book: "psalms", chapters: 150},
+            {book: "proverbs", chapters: 31},
+            {book: "romans", chapters: 16},
+            {book: "genesis", chapters: 50},
+            {book: "matthew", chapters: 28},
+            {book: "leviticus", chapters: 18},
+            {book: "1corinthians", chapters: 16},
+            {book: "ephesians", chapters: 6},
+            {book: "philippians", chapters: 4}
+        ];
 
-        function toggleVisibility() {
-            var content = document.getElementById("content");
-            var projectBoxes = document.getElementById("project-boxes");
-            if (content.style.visibility === "hidden") {
-                content.style.visibility = "visible";
-                projectBoxes.style.display = "none";
-            } else {
-                content.style.visibility = "hidden";
-                projectBoxes.style.display = "block";
+        const cross = document.querySelector('.glowing-cross');
+        const versePopup = document.getElementById('versePopup');
+        const verseText = document.getElementById('verseText');
+        const verseReference = document.getElementById('verseReference');
+        const loadingVerse = document.getElementById('loadingVerse');
+
+        if (cross) cross.addEventListener('click', fetchRandomVerse);
+
+        async function fetchRandomVerse() {
+            verseText.style.display = 'none';
+            verseReference.style.display = 'none';
+            loadingVerse.style.display = 'block';
+            versePopup.classList.add('show');
+
+            try {
+                const randomBook = bibleBooks[Math.floor(Math.random() * bibleBooks.length)];
+                const randomChapter = Math.floor(Math.random() * randomBook.chapters) + 1;
+                const response = await fetch(`https://bible-api.com/${randomBook.book}+${randomChapter}`);
+                const data = await response.json();
+
+                if (data.verses && data.verses.length > 0) {
+                    const randomVerse = data.verses[Math.floor(Math.random() * data.verses.length)];
+                    verseText.textContent = randomVerse.text.trim();
+                    verseReference.textContent = `${randomVerse.book_name} ${randomVerse.chapter}:${randomVerse.verse}`;
+                } else {
+                    throw new Error("No verses found");
+                }
+                
+                loadingVerse.style.display = 'none';
+                verseText.style.display = 'block';
+                verseReference.style.display = 'block';
+            } catch (error) {
+                console.error("Error fetching verse:", error);
+                loadingVerse.style.display = 'none';
+                verseText.style.display = 'block';
+                verseReference.style.display = 'block';
+                verseText.textContent = "Could not fetch verse at this time. Please try again later.";
+                verseReference.textContent = "";
             }
         }
+
+        function closeVerse() {
+            versePopup.classList.remove('show');
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target === versePopup) {
+                closeVerse();
+            }
+        });
 
         function createStars() {
-            const starContainer = document.getElementById('star-container');
-            const numStars = 100;
-            for (let i = 0; i < numStars; i++) {
-                let star = document.createElement('div');
-                star.className = 'star';
-                let x = Math.random() * 100;
-                let y = Math.random() * 100;
-                let size = Math.random() * 2 + 1;
-                let duration = Math.random() * 3 + 2;
-                star.style.left = `${x}vw`;
-                star.style.top = `${y}vh`;
+            const container = document.getElementById('star-container');
+            const count = 200;
+            
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const size = Math.random() * 2 + 1;
+                const delay = Math.random() * 3;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
-                star.style.animationDuration = `${duration}s`;
-                starContainer.appendChild(star);
+                star.style.animationDelay = `${delay}s`;
+                container.appendChild(star);
             }
         }
-
-        createStars();
+        
+        function copyDiscord() {
+            navigator.clipboard.writeText("prototbh_")
+                .then(() => alert("Discord username copied to clipboard!"))
+                .catch(err => console.error("Could not copy text: ", err));
+        }
+        
+        function toggleProjects() {
+            const projects = document.getElementById('project-boxes');
+            projects.style.display = projects.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        window.onload = createStars;
     </script>
 </body>
 </html>
