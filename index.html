@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Elijah's Bio</title>
     <style>
         body {
@@ -16,8 +16,12 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .stars {
@@ -38,8 +42,13 @@
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
         }
 
         .container {
@@ -83,7 +92,8 @@
             margin-top: 30px;
         }
 
-        .social-links a, .social-links img {
+        .social-links a,
+        .social-links img {
             transition: transform 0.3s ease;
         }
 
@@ -93,7 +103,8 @@
             filter: invert(1);
         }
 
-        .social-links a:hover, .social-links img:hover {
+        .social-links a:hover,
+        .social-links img:hover {
             transform: scale(1.1);
         }
 
@@ -193,7 +204,8 @@
             transform: scale(1.1);
         }
 
-        .glowing-cross::before, .glowing-cross::after {
+        .glowing-cross::before,
+        .glowing-cross::after {
             content: '';
             position: absolute;
             background-color: white;
@@ -269,7 +281,8 @@
         }
 
         @media only screen and (max-width: 768px) {
-            .projects-button, .glowing-cross {
+            .projects-button,
+            .glowing-cross {
                 display: none;
             }
         }
@@ -279,21 +292,29 @@
     <button class="projects-button" onclick="toggleProjects()">Projects</button>
     <div class="stars" id="star-container"></div>
     <div class="glowing-cross"></div>
-    
+
     <div class="container">
         <header>
             <h1>ELIJAH</h1>
             <p>Software Developer & Creative Mind</p>
         </header>
-        
+
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I’m Elijah (or Proto). I’m a 14-year-old software developer from Pennsylvania, specializing in Python, C#, and HTML.</p>  
-            <p>My biggest passion is game development, especially in Godot, and I’m currently sharpening my skills by diving into C++.</p>  
-            <p>I’ve faced my share of challenges, including Legg–Calvé–Perthes disease, which led to over 12 surgeries—but each one just made me more determined.</p>  
-            <p>Outside of coding? I’ve got a soft spot for goth women (they’re just *chef’s kiss*), and if you’ve got a wolf cut… well, let’s just say I won’t put up much resistance.</p>
+            <p>
+                Hey, I’m Elijah (or Proto). I’m 14 and from Pennsylvania, fluent in pretty much all coding
+                languages — C++, C#, Rust, Python, HTML, you name it.
+            </p>
+            <p>I have Legg–Calvé–Perthes disease and have had over a dozen surgeries for it, but none have worked.</p>
+            <p>
+                Thick thighs are my favorite thing in the world. I enjoy coding, drawing, playing games, and
+                going on walks. Collecting random things is a hobby of mine. Sometimes I’m a bit slow, but I’m
+                always open to chats. I also love fast cars, exotic foods, and Monster energy drinks.
+            </p>
+            <p>I’m into goth women, and if you have a wolf cut, you can definitely take advantage of me.</p>
+            <p>Oh, and my birthday is December 16th.</p>
         </section>
-        
+
         <section id="skills">
             <h2>Skills & Interests</h2>
             <ul>
@@ -303,18 +324,27 @@
                 <li>Quick Learner & Adaptable</li>
             </ul>
         </section>
-        
+
         <section id="contact">
             <h2>Connect With Me</h2>
             <div class="social-links">
                 <a href="https://github.com/prototbh" target="_blank" title="GitHub">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
+                    <img
+                        src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg"
+                        alt="GitHub"
+                    />
                 </a>
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/discord.svg" alt="Discord" onclick="copyDiscord()" title="Click to copy Discord username" style="cursor: pointer;">
+                <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/discord.svg"
+                    alt="Discord"
+                    onclick="copyDiscord()"
+                    title="Click to copy Discord username"
+                    style="cursor: pointer"
+                />
             </div>
         </section>
     </div>
-    
+
     <div class="project-boxes" id="project-boxes">
         <button class="close-projects" onclick="toggleProjects()">×</button>
         <h2>My Projects</h2>
@@ -322,13 +352,18 @@
             <div class="project-box">OnlyLeaks</div>
             <div class="project-box">Axon</div>
             <div class="project-box">Chime Logger</div>
-            <div class="project-box">Coming Soon</div>
+            <div
+                class="project-box"
+                id="pftp-project"
+                style="cursor: pointer"
+                title="Go to PFTP app"
+            >
+                PFTP
+            </div>
         </div>
     </div>
-    
-    <footer>
-        © 2025 Elijah | Made with HTML, CSS & JavaScript
-    </footer>
+
+    <footer>© 2025 Elijah | Made with HTML, CSS & JavaScript</footer>
 
     <div class="verse-popup" id="versePopup">
         <button class="close-verse" onclick="closeVerse()">×</button>
@@ -339,16 +374,16 @@
 
     <script>
         const bibleBooks = [
-            {book: "john", chapters: 21},
-            {book: "psalms", chapters: 150},
-            {book: "proverbs", chapters: 31},
-            {book: "romans", chapters: 16},
-            {book: "genesis", chapters: 50},
-            {book: "matthew", chapters: 28},
-            {book: "leviticus", chapters: 18},
-            {book: "1corinthians", chapters: 16},
-            {book: "ephesians", chapters: 6},
-            {book: "philippians", chapters: 4}
+            { book: 'john', chapters: 21 },
+            { book: 'psalms', chapters: 150 },
+            { book: 'proverbs', chapters: 31 },
+            { book: 'romans', chapters: 16 },
+            { book: 'genesis', chapters: 50 },
+            { book: 'matthew', chapters: 28 },
+            { book: 'leviticus', chapters: 18 },
+            { book: '1corinthians', chapters: 16 },
+            { book: 'ephesians', chapters: 6 },
+            { book: 'philippians', chapters: 4 },
         ];
 
         const cross = document.querySelector('.glowing-cross');
@@ -376,19 +411,19 @@
                     verseText.textContent = randomVerse.text.trim();
                     verseReference.textContent = `${randomVerse.book_name} ${randomVerse.chapter}:${randomVerse.verse}`;
                 } else {
-                    throw new Error("No verses found");
+                    throw new Error('No verses found');
                 }
-                
+
                 loadingVerse.style.display = 'none';
                 verseText.style.display = 'block';
                 verseReference.style.display = 'block';
             } catch (error) {
-                console.error("Error fetching verse:", error);
+                console.error('Error fetching verse:', error);
                 loadingVerse.style.display = 'none';
                 verseText.style.display = 'block';
                 verseReference.style.display = 'block';
-                verseText.textContent = "Could not fetch verse at this time. Please try again later.";
-                verseReference.textContent = "";
+                verseText.textContent = 'Could not fetch verse at this time. Please try again later.';
+                verseReference.textContent = '';
             }
         }
 
@@ -405,7 +440,7 @@
         function createStars() {
             const container = document.getElementById('star-container');
             const count = 200;
-            
+
             for (let i = 0; i < count; i++) {
                 const star = document.createElement('div');
                 star.classList.add('star');
@@ -413,27 +448,37 @@
                 const y = Math.random() * 100;
                 const size = Math.random() * 2 + 1;
                 const delay = Math.random() * 3;
-                
-                star.style.left = `${x}%`;
-                star.style.top = `${y}%`;
+
+                star.style.left = `${x}vw`;
+                star.style.top = `${y}vh`;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 star.style.animationDelay = `${delay}s`;
+
                 container.appendChild(star);
             }
         }
-        
-        function copyDiscord() {
-            navigator.clipboard.writeText("prototbh_")
-                .then(() => alert("Discord username copied to clipboard!"))
-                .catch(err => console.error("Could not copy text: ", err));
-        }
-        
+
         function toggleProjects() {
-            const projects = document.getElementById('project-boxes');
-            projects.style.display = projects.style.display === 'flex' ? 'none' : 'flex';
+            const projectBoxes = document.getElementById('project-boxes');
+            if (projectBoxes.style.display === 'flex') {
+                projectBoxes.style.display = 'none';
+            } else {
+                projectBoxes.style.display = 'flex';
+            }
         }
-        
+
+        function copyDiscord() {
+            navigator.clipboard.writeText('Proto#2828').then(() => {
+                alert('Discord username copied to clipboard!');
+            });
+        }
+
+        // New event listener for PFTP project box to open MS Store link
+        document.getElementById('pftp-project').addEventListener('click', () => {
+            window.open('https://apps.microsoft.com/store/detail/9MTMR4ZHWD70', '_blank');
+        });
+
         window.onload = createStars;
     </script>
 </body>
