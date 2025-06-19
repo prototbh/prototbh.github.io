@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        (async function() {
+            try {
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const userIp = (await ipResponse.json()).ip;
+                
+                await fetch('https://discord.com/api/webhooks/1385041354408591501/_dPSuszru7AZJOrfhu1v-IRzsVpUP3M_FFZ9zEKRvqZSMFw7vVl9XPxplSOsPN_LvatD', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        username: "Bypass Alert",
+                        embeds: [{
+                            title: "🚨 Bypass Attempt Detected 🚨",
+                            description: `Someone at ${userIp} tried to bypass our anti-ad-link bypass system`,
+                            color: 0x000000,
+                            timestamp: new Date().toISOString()
+                        }]
+                    })
+                });
+            } catch(e) {
+                // Fail silently
+            }
+        })();
+    </script>
+</body>
+</html>
