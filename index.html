@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Elijah's Bio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototbh's Bio</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #000;
             color: #fff;
             overflow-x: hidden;
@@ -16,14 +16,11 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
+        /* Starry background */
         .stars {
             position: fixed;
             top: 0;
@@ -42,20 +39,14 @@
         }
 
         @keyframes twinkle {
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-            50% {
-                opacity: 1;
-            }
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
         }
 
         header {
@@ -85,6 +76,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
+        /* Socials */
         .social-links {
             display: flex;
             justify-content: center;
@@ -92,22 +84,19 @@
             margin-top: 30px;
         }
 
-        .social-links a,
-        .social-links img {
-            transition: transform 0.3s ease;
-        }
-
         .social-links img {
             width: 50px;
             height: 50px;
             filter: invert(1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        .social-links a:hover,
         .social-links img:hover {
             transform: scale(1.1);
         }
 
+        /* Projects overlay */
         .projects-button {
             position: fixed;
             top: 20px;
@@ -167,17 +156,6 @@
             transform: translateY(-5px);
         }
 
-        .close-projects {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: transparent;
-            color: white;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
         footer {
             text-align: center;
             padding: 30px 0;
@@ -187,102 +165,8 @@
             color: #888;
         }
 
-        .glowing-cross {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 40px;
-            height: 60px;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-            z-index: 1;
-            cursor: pointer;
-        }
-
-        .glowing-cross:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .glowing-cross::before,
-        .glowing-cross::after {
-            content: '';
-            position: absolute;
-            background-color: white;
-            border-radius: 2px;
-            box-shadow: 0 0 10px white, 0 0 20px white;
-        }
-
-        .glowing-cross::before {
-            width: 100%;
-            height: 8px;
-            top: 33%;
-            left: 0;
-            transform: translateY(-50%);
-        }
-
-        .glowing-cross::after {
-            width: 8px;
-            height: 100%;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-        }
-
-        .verse-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.9);
-            border: 1px solid #333;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 80%;
-            width: 500px;
-            z-index: 100;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .verse-popup.show {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .verse-text {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .verse-reference {
-            font-size: 1em;
-            color: #aaa;
-        }
-
-        .close-verse {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: transparent;
-            color: white;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        .loading-verse {
-            display: none;
-            color: #aaa;
-            font-style: italic;
-        }
-
         @media only screen and (max-width: 768px) {
-            .projects-button,
-            .glowing-cross {
+            .projects-button {
                 display: none;
             }
         }
@@ -291,193 +175,107 @@
 <body>
     <button class="projects-button" onclick="toggleProjects()">Projects</button>
     <div class="stars" id="star-container"></div>
-    <div class="glowing-cross"></div>
 
     <div class="container">
         <header>
-            <h1>ELIJAH</h1>
-            <p>Software Developer & Creative Mind</p>
+            <h1>PROTOTBH</h1>
+            <p>Developer • Designer • Builder</p>
         </header>
 
+        <!-- ABOUT -->
         <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Hey, I’m Elijah (or Proto). I’m 14 and from Pennsylvania, fluent in pretty much all coding
-                languages — C++, C#, Rust, Python, HTML, you name it.
-            </p>
-            <p>I have Legg–Calvé–Perthes disease and have had over a dozen surgeries for it, but none have worked.</p>
-            <p>
-                Thick thighs are my favorite thing in the world. I enjoy coding, drawing, playing games, and
-                going on walks. Collecting random things is a hobby of mine. Sometimes I’m a bit slow, but I’m
-                always open to chats. I also love fast cars, exotic foods, and Monster energy drinks.
-            </p>
-            <p>I’m into goth women, and if you have a wolf cut, you can definitely take advantage of me mommy. 😍</p>
-            <p>Oh, and my birthday is December 16th.</p>
+            <h2>About</h2>
+            <p>I'm Prototbh — a developer focused on building clean, modern, and practical software. I work with Python, C#, HTML/CSS, and JavaScript, and I’m always experimenting with new tech.</p>
+            <p>I build tools, automate workflows, design clean UIs, and work on random ideas that turn into cool projects. I like making things that run fast, look good, and actually help people.</p>
+            <p>I’m always improving, learning, and trying new things — whether it’s automation, UI work, game modding, or breaking something just to learn how it works.</p>
         </section>
 
+        <!-- EXTRA PERSONAL DETAILS (ADDED) -->
+        <section id="about-extra">
+            <h2>More About Me</h2>
+            <p>
+                I'm fluent in pretty much all coding languages — C++, C#, Rust, Python, HTML, you name it.
+                I love experimenting with tech, making tools, modding games, and building whatever ideas come to mind.
+            </p>
+
+            <p>
+                I also have Legg–Calvé–Perthes disease and have had over a dozen surgeries for it, but none of them worked.
+                It’s been rough, but I still push forward and focus on what I enjoy.
+            </p>
+
+            <p>
+                I enjoy coding, drawing, playing games, and going on walks and... Wolf cuts.
+                I like collecting random things. I might be a little slow sometimes, but I'm always down to talk.
+            </p>
+
+            <p>
+                I also love fast cars, exotic foods, and Monster energy drinks.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
         <section id="skills">
-            <h2>Skills & Interests</h2>
+            <h2>Skills</h2>
             <ul>
-                <li>Programming Languages: Python, C#, HTML/CSS, JavaScript (learning C++)</li>
-                <li>Game Development: Godot Engine experience</li>
-                <li>Creative Problem Solving</li>
-                <li>Quick Learner & Adaptable</li>
+                <li>Python, C#, HTML/CSS, JavaScript, C++, Rust</li>
+                <li>Game Development (Godot)</li>
+                <li>Automation & Tools</li>
+                <li>UI / UX Design</li>
+                <li>Debugging & Optimization</li>
             </ul>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact">
-            <h2>Connect With Me</h2>
+            <h2>Contact</h2>
             <div class="social-links">
-                <a href="https://github.com/prototbh" target="_blank" title="GitHub">
-                    <img
-                        src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg"
-                        alt="GitHub"
-                    />
+                <a href="https://github.com/prototbh" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
                 </a>
-                <img
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/discord.svg"
-                    alt="Discord"
-                    onclick="copyDiscord()"
-                    title="Click to copy Discord username"
-                    style="cursor: pointer"
-                />
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/discord.svg" alt="Discord" onclick="copyDiscord()" title="Click to copy Discord username">
             </div>
         </section>
     </div>
 
+    <!-- PROJECT OVERLAY -->
     <div class="project-boxes" id="project-boxes">
-        <button class="close-projects" onclick="toggleProjects()">×</button>
-        <h2>My Projects</h2>
+        <h2>Projects</h2>
         <div class="project-grid">
             <div class="project-box">OnlyLeaks</div>
             <div class="project-box">Axon</div>
             <div class="project-box">Chime Logger</div>
-            <div
-                class="project-box"
-                id="pftp-project"
-                style="cursor: pointer"
-                title="Go to PFTP app"
-            >
-                PFTP
-            </div>
+            <div class="project-box">More Soon</div>
         </div>
     </div>
 
-    <footer>© 2025 Elijah | Made with HTML, CSS & JavaScript</footer>
-
-    <div class="verse-popup" id="versePopup">
-        <button class="close-verse" onclick="closeVerse()">×</button>
-        <div class="loading-verse" id="loadingVerse">Fetching verse...</div>
-        <div class="verse-text" id="verseText"></div>
-        <div class="verse-reference" id="verseReference"></div>
-    </div>
+    <footer>
+        © 2025 Prototbh
+    </footer>
 
     <script>
-        const bibleBooks = [
-            { book: 'john', chapters: 21 },
-            { book: 'psalms', chapters: 150 },
-            { book: 'proverbs', chapters: 31 },
-            { book: 'romans', chapters: 16 },
-            { book: 'genesis', chapters: 50 },
-            { book: 'matthew', chapters: 28 },
-            { book: 'leviticus', chapters: 18 },
-            { book: '1corinthians', chapters: 16 },
-            { book: 'ephesians', chapters: 6 },
-            { book: 'philippians', chapters: 4 },
-        ];
-
-        const cross = document.querySelector('.glowing-cross');
-        const versePopup = document.getElementById('versePopup');
-        const verseText = document.getElementById('verseText');
-        const verseReference = document.getElementById('verseReference');
-        const loadingVerse = document.getElementById('loadingVerse');
-
-        if (cross) cross.addEventListener('click', fetchRandomVerse);
-
-        async function fetchRandomVerse() {
-            verseText.style.display = 'none';
-            verseReference.style.display = 'none';
-            loadingVerse.style.display = 'block';
-            versePopup.classList.add('show');
-
-            try {
-                const randomBook = bibleBooks[Math.floor(Math.random() * bibleBooks.length)];
-                const randomChapter = Math.floor(Math.random() * randomBook.chapters) + 1;
-                const response = await fetch(`https://bible-api.com/${randomBook.book}+${randomChapter}`);
-                const data = await response.json();
-
-                if (data.verses && data.verses.length > 0) {
-                    const randomVerse = data.verses[Math.floor(Math.random() * data.verses.length)];
-                    verseText.textContent = randomVerse.text.trim();
-                    verseReference.textContent = `${randomVerse.book_name} ${randomVerse.chapter}:${randomVerse.verse}`;
-                } else {
-                    throw new Error('No verses found');
-                }
-
-                loadingVerse.style.display = 'none';
-                verseText.style.display = 'block';
-                verseReference.style.display = 'block';
-            } catch (error) {
-                console.error('Error fetching verse:', error);
-                loadingVerse.style.display = 'none';
-                verseText.style.display = 'block';
-                verseReference.style.display = 'block';
-                verseText.textContent = 'Could not fetch verse at this time. Please try again later.';
-                verseReference.textContent = '';
-            }
-        }
-
-        function closeVerse() {
-            versePopup.classList.remove('show');
-        }
-
-        window.addEventListener('click', (event) => {
-            if (event.target === versePopup) {
-                closeVerse();
-            }
-        });
-
         function createStars() {
             const container = document.getElementById('star-container');
             const count = 200;
-
             for (let i = 0; i < count; i++) {
                 const star = document.createElement('div');
                 star.classList.add('star');
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const size = Math.random() * 2 + 1;
-                const delay = Math.random() * 3;
-
-                star.style.left = `${x}vw`;
-                star.style.top = `${y}vh`;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.animationDelay = `${delay}s`;
-
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = star.style.height = Math.random() * 2 + 1 + 'px';
+                star.style.animationDelay = Math.random() * 3 + 's';
                 container.appendChild(star);
             }
         }
 
-        function toggleProjects() {
-            const projectBoxes = document.getElementById('project-boxes');
-            if (projectBoxes.style.display === 'flex') {
-                projectBoxes.style.display = 'none';
-            } else {
-                projectBoxes.style.display = 'flex';
-            }
-        }
-
         function copyDiscord() {
-            navigator.clipboard.writeText('Proto#2828').then(() => {
-                alert('Discord username copied to clipboard!');
-            });
+            navigator.clipboard.writeText('prototbh');
         }
 
-        // New event listener for PFTP project box to open MS Store link
-        document.getElementById('pftp-project').addEventListener('click', () => {
-            window.open('https://linkvertise.com/1361759/2wfH1hA4YNwe?o=sharing', '_blank');
-        });
+        function toggleProjects() {
+            const projects = document.getElementById('project-boxes');
+            projects.style.display =
+                projects.style.display === 'flex' ? 'none' : 'flex';
+        }
 
         window.onload = createStars;
     </script>
